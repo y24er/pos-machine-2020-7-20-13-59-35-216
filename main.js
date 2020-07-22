@@ -40,7 +40,7 @@ function printReceipt(barcodes) {
 
 function decodeBarcides(barcodes){
     var itemCounts=getItemCount(barcodes);
-    return getItems(itemCounts);
+    return getItems(itemCounts); 
 };
 
 function getItemCount(barcodes){
@@ -68,6 +68,7 @@ function getItems(itemCounts){
     return itemsInformationWithCount;
     
 }
+
 function getSubTotal(itemsInformationWithCount){
     var itemsInformations=[];
     itemsInformationWithCount.filter(item=>{
@@ -88,7 +89,9 @@ function printAllReceipt(itemsInformations){
 
 function printReceiptLine(itemInformation){
     var line = "";
-    line = "Name: "+itemInformation.name+", Quantity: "+itemInformation.quantity+", Unit price: "+itemInformation.price+" (yuan), Subtotal: "+itemInformation.subTotal+" (yuan)"+"\n";
+    // line = "Name: "+itemInformation.name+", Quantity: "+itemInformation.quantity+", Unit price: "+itemInformation.price+" (yuan), Subtotal: "+itemInformation.subTotal+" (yuan)"+"\n";
+    //更加方便的方法：字符串拼接 `${}`
+    line = `Name: ${itemInformation.name}, Quantity: ${itemInformation.quantity}, Unit price: ${itemInformation.price} (yuan), Subtotal: ${itemInformation.subTotal} (yuan)\n`;
     return line;
 }
 
